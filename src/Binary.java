@@ -8,6 +8,20 @@ public class Binary {
 
     static ArrayList<String> binaryCombinations = new ArrayList<String>();
 
+    static ArrayList<String> hexadecimalCombinations = new ArrayList<String>() {{
+        add("0000");
+        add("0001");
+        add("0010");
+        add("0011");
+        add("0100");
+        add("0101");
+        add("0110");
+        add("0111");
+        add("1000");
+        add("1001");
+
+    }};
+
 
     public void convertToHexadecimal() {
 
@@ -45,6 +59,28 @@ public class Binary {
 
             System.out.println(binaryCombinations);
 
+            String result = "";
+
+            for (int i = 0; i < binaryCombinations.size(); ++i){
+
+                // check if current combination equals to one of the hex codes
+
+                for (int j = 0; j < hexadecimalCombinations.size(); ++j) {
+
+                    String binCombination = binaryCombinations.get(i);
+
+                    if (binCombination.equals(hexadecimalCombinations.get(j))){
+                        System.out.println(" There is a match!");
+
+                        result = result + j;
+
+                    }
+                }
+            }
+
+            System.out.println(result + ", " + "End!");
+
+
             binaryCombinations.clear();
 
 
@@ -57,18 +93,15 @@ public class Binary {
     }
 
     private void addZerosIfNecessary(String combination) {
-        if (combination.length() == 3){
+
+        if (combination.length() == 3) {
 
             combination = "0" + combination;
             addCombination(combination);
-        }
-
-        else if (combination.length() == 2){
+        } else if (combination.length() == 2) {
             combination = "00" + combination;
             addCombination(combination);
-        }
-
-        else if (combination.length() == 1){
+        } else if (combination.length() == 1) {
             combination = "000" + combination;
             addCombination(combination);
         }
