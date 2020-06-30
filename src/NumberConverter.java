@@ -12,6 +12,6 @@ public class NumberConverter {
 		
 		//Create and displays menu
 		Menu menu = new Menu(dec, bin, hex);
-		menu.display();
+		menu.show();
 	}
 }

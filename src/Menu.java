@@ -3,21 +3,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu implements ActionListener {
-    JFrame frame;
-    JPanel panel;
-    JButton binToHex;
-    JButton binToDec;
-    JButton hexToBin;
-    JButton hexToDec;
-    JButton decToHex;
-    JButton decToBin;
-    Decimal decimal;
-    Binary binary;
-    Hexadecimal hexadecimal;
 
-    public Menu (Decimal decimal, Binary binary, Hexadecimal hexadecimal){
+    JFrame frame = new JFrame();
+    JPanel panel = new JPanel();
+    JButton binToHex = new JButton();
+    JButton binToDec = new JButton();
+    JButton hexToBin = new JButton();
+    JButton hexToDec = new JButton();
+    JButton decToHex = new JButton();
+    JButton decToBin = new JButton();
+    Decimal decimal = new Decimal();
+    Binary binary = new Binary();
+    Hexadecimal hexadecimal = new Hexadecimal();
 
-        this.decimal = decimal; this.binary = binary; this.hexadecimal = hexadecimal;
+    public Menu(Decimal decimal, Binary binary, Hexadecimal hexadecimal) {
+
+        this.decimal = decimal;
+        this.binary = binary;
+        this.hexadecimal = hexadecimal;
 
         createUI();
 
@@ -53,16 +56,24 @@ public class Menu implements ActionListener {
 
     }
 
-    void show (){
+    void show() {
 
     }
 
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
 
-    }
+        if (e.getSource() == binToHex) binary.convertToHexadecimal();
 
-    public void display() {
+        if (e.getSource() == binToDec) binary.convertToDecimal();
+
+        if (e.getSource() == hexToBin) hexadecimal.convertToBinary();
+
+        if (e.getSource() == hexToDec) hexadecimal.convertToDecimal();
+
+        if (e.getSource() == decToHex) decimal.convertToHexadecimal();
+
+        if (e.getSource() == decToBin) decimal.convertToBinary();
 
     }
 }
