@@ -11,7 +11,7 @@ public class NumberConverter {
 		Hexadecimal hex = new Hexadecimal();
 		
 		//Create and displays menu
-		Menu menu = new Menu(bin, hex, dec);
+		Menu menu = new Menu(dec, bin, hex);
 		menu.display();
 	}
 }
