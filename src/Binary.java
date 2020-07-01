@@ -3,27 +3,9 @@ import java.util.ArrayList;
 
 public class Binary {
 
-<<<<<<< Updated upstream
-    static ArrayList<String> binaryCombinations = new ArrayList<String>();
-
-    static ArrayList<String> hexadecimalCombinations = new ArrayList<String>() {{
-        add("0000");
-        add("0001");
-        add("0010");
-        add("0011");
-        add("0100");
-        add("0101");
-        add("0110");
-        add("0111");
-        add("1000");
-        add("1001");
-
-    }};
-
-=======
     ArrayList<String> binaryCombinations = new ArrayList<String>();
     String binaryNumber;
->>>>>>> Stashed changes
+
 
     public void convertToHexadecimal() {
 
@@ -36,16 +18,9 @@ public class Binary {
 
             System.out.println("The binary number should be 32-digit long");
 
-<<<<<<< Updated upstream
-            // 1. Get string containing the binary number not max of 32 digits
-            // which is 8 combinations, (i.e. (1111)(1100)()()()()()()..)
-
-            // 2. Make an algorithm that breaks the String binary number into 4-digit combinations
-=======
         } else {
 
             // Make an algorithm that breaks the String binary number into 4-digit combinations
->>>>>>> Stashed changes
 
             String combination = "";
             int counter = 1;
@@ -80,18 +55,16 @@ public class Binary {
 
                 // check if current combination equals to one of the hex codes
 
-                for (int j = 0; j < hexadecimalCombinations.size(); ++j) {
+                int size = ListsOfCodes.hexCombinations.size();
+
+                for (int j = 0; j < size; ++j) {
 
                     String binCombination = binaryCombinations.get(i);
 
-<<<<<<< Updated upstream
-                    if (binCombination.equals(hexadecimalCombinations.get(j))){
-=======
-                    String hexCodes = ListsOfCodes.hexadecimalCombinations.get(j);
+                    String hexCodes = ListsOfCodes.hexCombinations.get(j);
 
                     if (binCombination.equals(hexCodes)) {
 
->>>>>>> Stashed changes
                         System.out.println(" There is a match!");
 
                         result = result + j;

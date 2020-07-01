@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class ListsOfCodes {
 
-    static ArrayList<String> hexadecimalCombinations = new ArrayList<String>() {{
+    static ArrayList<String> hexCombinations = new ArrayList<String>() {{
         add("0000");
         add("0001");
         add("0010");
