@@ -71,7 +71,7 @@ public class Binary {
 
             JOptionPane.showMessageDialog(null, "The result is: " + result,
                     "Result", JOptionPane.INFORMATION_MESSAGE);
-            
+
             binaryCombinations.clear();
 
         }
@@ -95,13 +95,29 @@ public class Binary {
 
     public void convertToDecimal() {
 
-        String input =
+        String binary =
                 JOptionPane.showInputDialog("Enter a binary number to convert to Decimal");
 
-        int binaryNumber = Integer.parseInt(input);
+        // Starting from the right, for each number make a number two elevate to its power
 
-        // For each binary digit add a
+        int exponent = 0;
+        int decimal = 0;
 
+        for (int i = binary.length() - 1; i >= 0; i--){
 
+            binary.charAt(i);
+            int result = (int) Math.pow(2, exponent);
+
+            exponent++;
+
+            if (binary.charAt(i) != '0'){
+
+                decimal = decimal + result;
+
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "The result is: " + decimal,
+                "Result", JOptionPane.INFORMATION_MESSAGE);
     }
 }
