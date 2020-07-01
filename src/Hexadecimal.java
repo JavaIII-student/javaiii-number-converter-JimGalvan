@@ -1,24 +1,31 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class Hexadecimal {
     public void convertToBinary() {
 
-        try {
             String input =
                     JOptionPane.showInputDialog("Enter a Hexadecimal number to convert to Binary");
 
-            int integer = Integer.parseInt(input);
+            HashMap<String, String> hexToBinList = ListsOfCodes.hexToBinList;
 
+            String binary = "";
 
+            for (int i = 0; i < input.length(); i++){
 
+                for ( String key : hexToBinList.keySet() ) {
 
-        } catch (HeadlessException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
+                    if (String.valueOf(input.charAt(i)).equals(key)){
 
+                        binary = binary + hexToBinList.get(key).toString();
+
+                    }
+                }
+            }
+
+        JOptionPane.showMessageDialog(null, "The result is: " + binary,
+                "Result", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void convertToDecimal() {
