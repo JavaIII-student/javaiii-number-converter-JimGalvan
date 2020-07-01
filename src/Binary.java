@@ -8,20 +8,6 @@ public class Binary {
 
     static ArrayList<String> binaryCombinations = new ArrayList<String>();
 
-    static ArrayList<String> hexadecimalCombinations = new ArrayList<String>() {{
-        add("0000");
-        add("0001");
-        add("0010");
-        add("0011");
-        add("0100");
-        add("0101");
-        add("0110");
-        add("0111");
-        add("1000");
-        add("1001");
-
-    }};
-
 
     public void convertToHexadecimal() {
 
@@ -29,10 +15,7 @@ public class Binary {
             String input =
                     JOptionPane.showInputDialog("Enter a binary number to convert to Hexadecimal");
 
-            // 1. Get string containing the binary number not max of 32 digits
-            // which is 8 combinations, (i.e. (1111)(1100)()()()()()()..)
-
-            // 2. Make an algorithm that breaks the String binary number into 4-digit combinations
+           // Make an algorithm that breaks the String binary number into 4-digit combinations
 
             String combination = "";
             int counter = 1;
@@ -65,11 +48,16 @@ public class Binary {
 
                 // check if current combination equals to one of the hex codes
 
-                for (int j = 0; j < hexadecimalCombinations.size(); ++j) {
+                int size = ListsOfCodes.hexadecimalCombinations.size();
+
+                for (int j = 0; j < size; ++j) {
 
                     String binCombination = binaryCombinations.get(i);
 
-                    if (binCombination.equals(hexadecimalCombinations.get(j))){
+                    String hexCodes = ListsOfCodes.hexadecimalCombinations.get(j);
+
+                    if (binCombination.equals(hexCodes)){
+                        
                         System.out.println(" There is a match!");
 
                         result = result + j;
@@ -78,8 +66,8 @@ public class Binary {
                 }
             }
 
-            System.out.println(result + ", " + "End!");
-
+            JOptionPane.showMessageDialog(null, "The result is: " + result,
+                    "Result", JOptionPane.INFORMATION_MESSAGE);
 
             binaryCombinations.clear();
 
