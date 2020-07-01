@@ -1,11 +1,9 @@
 import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Binary {
 
+<<<<<<< Updated upstream
     static ArrayList<String> binaryCombinations = new ArrayList<String>();
 
     static ArrayList<String> hexadecimalCombinations = new ArrayList<String>() {{
@@ -22,25 +20,42 @@ public class Binary {
 
     }};
 
+=======
+    ArrayList<String> binaryCombinations = new ArrayList<String>();
+    String binaryNumber;
+>>>>>>> Stashed changes
 
     public void convertToHexadecimal() {
 
-        try {
-            String input =
-                    JOptionPane.showInputDialog("Enter a binary number to convert to Hexadecimal");
+        String input =
+                JOptionPane.showInputDialog("Enter a binary number to convert to Hexadecimal");
 
+        addZerosIfNecessary(input);
+
+        if (binaryNumber.length() > 32) {
+
+            System.out.println("The binary number should be 32-digit long");
+
+<<<<<<< Updated upstream
             // 1. Get string containing the binary number not max of 32 digits
             // which is 8 combinations, (i.e. (1111)(1100)()()()()()()..)
 
             // 2. Make an algorithm that breaks the String binary number into 4-digit combinations
+=======
+        } else {
+
+            // Make an algorithm that breaks the String binary number into 4-digit combinations
+>>>>>>> Stashed changes
 
             String combination = "";
             int counter = 1;
 
-            for (int i = 0; i < input.length(); ++i) {
+            System.out.println(binaryNumber);
+
+            for (int i = 0; i < binaryNumber.length(); ++i) {
 
                 // add binary numbers to a combination
-                combination = combination + input.charAt(i);
+                combination = combination + binaryNumber.charAt(i) ;
 
                 counter++;
 
@@ -55,13 +70,13 @@ public class Binary {
                 }
             }
 
-            addZerosIfNecessary(combination);
 
             System.out.println(binaryCombinations);
 
+
             String result = "";
 
-            for (int i = 0; i < binaryCombinations.size(); ++i){
+            for (int i = 0; i < binaryCombinations.size(); ++i) {
 
                 // check if current combination equals to one of the hex codes
 
@@ -69,7 +84,14 @@ public class Binary {
 
                     String binCombination = binaryCombinations.get(i);
 
+<<<<<<< Updated upstream
                     if (binCombination.equals(hexadecimalCombinations.get(j))){
+=======
+                    String hexCodes = ListsOfCodes.hexadecimalCombinations.get(j);
+
+                    if (binCombination.equals(hexCodes)) {
+
+>>>>>>> Stashed changes
                         System.out.println(" There is a match!");
 
                         result = result + j;
@@ -84,27 +106,19 @@ public class Binary {
             binaryCombinations.clear();
 
 
-        } catch (HeadlessException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
         }
-
     }
 
-    private void addZerosIfNecessary(String combination) {
 
-        if (combination.length() == 3) {
+    private void addZerosIfNecessary(String input) {
 
-            combination = "0" + combination;
-            addCombination(combination);
-        } else if (combination.length() == 2) {
-            combination = "00" + combination;
-            addCombination(combination);
-        } else if (combination.length() == 1) {
-            combination = "000" + combination;
-            addCombination(combination);
+        while (input.length() % 4 != 0){
+
+            input = "0" + input;
+
         }
+
+        binaryNumber = input;
     }
 
     private void addCombination(String combination) {
@@ -113,17 +127,10 @@ public class Binary {
 
     public void convertToDecimal() {
 
-        try {
-            String input =
-                    JOptionPane.showInputDialog("Enter a binary number to convert to Decimal");
+        String input =
+                JOptionPane.showInputDialog("Enter a binary number to convert to Decimal");
 
-            int integer = Integer.parseInt(input);
-
-        } catch (HeadlessException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
+        int integer = Integer.parseInt(input);
 
     }
 }
