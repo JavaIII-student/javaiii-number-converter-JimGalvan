@@ -6,7 +6,6 @@ public class Binary {
     ArrayList<String> binaryCombinations = new ArrayList<String>();
     String binaryNumber;
 
-
     public void convertToHexadecimal() {
 
         String input =
@@ -27,10 +26,10 @@ public class Binary {
 
             System.out.println(binaryNumber);
 
-            for (int i = 0; i < binaryNumber.length(); ++i) {
+            for (int i = binaryNumber.length() - 1; i >= 0; i--) {
 
                 // add binary numbers to a combination
-                combination = combination + binaryNumber.charAt(i) ;
+                combination = binaryNumber.charAt(i) + combination;
 
                 counter++;
 
@@ -45,9 +44,7 @@ public class Binary {
                 }
             }
 
-
             System.out.println(binaryCombinations);
-
 
             String result = "";
 
@@ -67,17 +64,15 @@ public class Binary {
 
                         System.out.println(" There is a match!");
 
-                        result = result + j;
-
+                        result = j + result;
                     }
                 }
             }
 
-            System.out.println(result + ", " + "End!");
-
-
+            JOptionPane.showMessageDialog(null, "The result is: " + result,
+                    "Result", JOptionPane.INFORMATION_MESSAGE);
+            
             binaryCombinations.clear();
-
 
         }
     }
@@ -85,7 +80,7 @@ public class Binary {
 
     private void addZerosIfNecessary(String input) {
 
-        while (input.length() % 4 != 0){
+        while (input.length() % 4 != 0) {
 
             input = "0" + input;
 
@@ -103,7 +98,10 @@ public class Binary {
         String input =
                 JOptionPane.showInputDialog("Enter a binary number to convert to Decimal");
 
-        int integer = Integer.parseInt(input);
+        int binaryNumber = Integer.parseInt(input);
+
+        // For each binary digit add a
+
 
     }
 }
